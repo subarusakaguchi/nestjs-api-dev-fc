@@ -6,7 +6,7 @@ POST http://localhost:3000/events
 content-type: application/json
 
 {
-  "name": "Evento teste",
+  "name": "Evento Novo",
   "description": "Evento de teste para ser removido depois",
   "date": "2023-02-27T00:00:00",
   "price": 100
@@ -26,7 +26,10 @@ PATCH http://localhost:3000/events/{{ eventId }}
 content-type: application/json
 
 {
-  "name": "Evento atualizado"
+  "name": "Evento novo 2: O Retorno",
+  "description": "Evento de teste para ser removido depois",
+  "date": "2023-02-27T00:00:00",
+  "price": 100
 }
 
 ###
@@ -39,7 +42,7 @@ POST http://localhost:3000/events/{{ eventId }}/spots
 content-type: application/json
 
 {
-  "name": "Lugar teste 4",
+  "name": "A5"
 }
 
 ###
@@ -56,8 +59,21 @@ PATCH http://localhost:3000/events/{{ eventId }}/spots/{{ spotId }}
 content-type: application/json
 
 {
-  "name": "Lugar atualizado"
+  "name": "A2"
 }
 
 ###
 DELETE http://localhost:3000/events/{{ eventId }}/spots/{{ spotId }}
+
+###
+@spotName = {{ createSpot.response.body.name }}
+
+###
+POST http://localhost:3000/events/{{ eventId }}/reserve
+content-type: application/json
+
+{
+  "spots": ["{{ spotName }}"],
+  "ticket_kind": "full",
+  "email": "test@test.com"
+}
