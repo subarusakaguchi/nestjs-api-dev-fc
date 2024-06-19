@@ -1,0 +1,29 @@
+GET http://localhost:3000
+
+###
+POST http://localhost:3000/events
+content-type: application/json
+
+{
+  "name": "Evento teste",
+  "description": "Evento de teste para ser removido depois",
+  "date": "2023-02-27T00:00:00",
+  "price": 100
+}
+
+###
+GET http://localhost:3000/events
+
+###
+GET http://localhost:3000/events/77d55bf2-bd78-470f-aa09-6aad0ed1cdf7
+
+###
+PATCH http://localhost:3000/events/77d55bf2-bd78-470f-aa09-6aad0ed1cdf7
+content-type: application/json
+
+{
+  "name": "Evento atualizado"
+}
+
+###
+DELETE http://localhost:3000/events/5f265a29-31bb-4dd3-aba8-b6301fdd77b6
