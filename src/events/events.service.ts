@@ -23,7 +23,7 @@ export class EventsService {
 
   update(id: string, updateEventDto: UpdateEventDto) {
     return this.prismaService.event.update({
-      data: updateEventDto,
+      data: { ...updateEventDto, date: new Date(updateEventDto.date) },
       where: {
         id,
       },
