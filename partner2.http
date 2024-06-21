@@ -42,7 +42,7 @@ POST http://localhost:3001/eventos/{{ eventId }}/lugares
 content-type: application/json
 
 {
-  "nome": "A5"
+  "nome": "A1"
 }
 
 ###
@@ -71,6 +71,7 @@ DELETE http://localhost:3001/eventos/{{ eventId }}/lugares/{{ spotId }}
 ###
 POST http://localhost:3001/eventos/{{ eventId }}/reserve
 content-type: application/json
+x-api-token: Nest1234
 
 {
   "lugares": ["{{ spotName }}"],

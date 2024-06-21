@@ -42,7 +42,7 @@ POST http://localhost:3000/events/{{ eventId }}/spots
 content-type: application/json
 
 {
-  "name": "A5"
+  "name": "A3"
 }
 
 ###
@@ -71,6 +71,7 @@ DELETE http://localhost:3000/events/{{ eventId }}/spots/{{ spotId }}
 ###
 POST http://localhost:3000/events/{{ eventId }}/reserve
 content-type: application/json
+x-api-token: Nest123
 
 {
   "spots": ["{{ spotName }}"],
